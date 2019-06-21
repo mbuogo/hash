@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#Script para gerar listas de Hash
+
+if [ "$1" == "" ] #testa o argumento
+then
+    echo "Siga o exemplo abaixo para passagem de parametros, passando o tipo de hash e a lista de palavras"
+    echo "md5sum | sha1sum | sha256sum | sha512sum"
+    echo " $0 md5sum lista.txt"
+
+else
+
+    for i in $(cat $2)
+    do
+    cypher=$(echo -n $i | $1 | cut -f 1 -d " ")
+    echo "$i:$cypher" >> hash.txt	
+    done
+
+    echo "(+)(+) Hash criados no arquivo hash.txt"
+    echo " "
+    echo "                   ¯\_(ツ)_/¯"
+    echo " "
+fi
