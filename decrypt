@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# passar hash como argumento
+#Script para quebra de hash
 
 if [ "$1" == "" ] #testa o argumento
 then
 	echo "Siga o exemplo abaixo para passagem de parametros, passando o nome de domínio"
-	echo " $0 wordlist encriptacao hash==> ./quebra_senha.sh /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
+	echo " $0 wordlist encriptacao hash ==> ./quebra_senha.sh /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
 
 else
 
@@ -18,8 +18,11 @@ else
    		 echo "Testando $cypher"
    		 if [ $3 == $cypher ]
    		 then
-   			 echo "[+][+] decrypt -- $i [+][+]"
-   			 break
+   			echo "[+][+] decrypt -- $i [+][+]"
+   			echo " "
+   			echo "¯\_(ツ)_/¯"
+    			echo " "
+   			break
    		 fi
    	 done
     fi
@@ -33,8 +36,29 @@ else
    		 echo "Testando $cypher"
    		 if [ $3 == $cypher ]
    		 then
-   			 echo "[+][+] decrypt -- $i [+][+]"
-   			 break
+   			echo "[+][+] decrypt -- $i [+][+]"
+			echo " "
+   			echo "¯\_(ツ)_/¯"
+    			echo " "
+   			break
+   		 fi
+   	 done
+    fi
+    
+        if [ "$2" == "sha512" ]
+    then
+   	 for i in $(cat $1)
+   	 do
+   		 clear
+   		 cypher=$(echo -n $i | sha512sum | cut -d " " -f1)
+   		 echo "Testando $cypher"
+   		 if [ $3 == $cypher ]
+   		 then
+   			echo "[+][+] decrypt -- $i [+][+]"
+			echo " "
+   			echo "¯\_(ツ)_/¯"
+    			echo " "
+   			break
    		 fi
    	 done
     fi
@@ -48,8 +72,11 @@ else
    		 echo "Testando $cypher"
    		 if [ $3 == $cypher ]
    		 then
-   			 echo "[+][+] decrypt -- $i [+][+]"
-   			 break
+   			echo "[+][+] decrypt -- $i [+][+]"
+			echo " "
+   			echo "¯\_(ツ)_/¯"
+    			echo " "
+   			break
    		 fi
    	 done
     fi
