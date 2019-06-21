@@ -2,6 +2,8 @@
 
 #Script para gerar listas de Hash
 
+rm -rf hashs.txt
+
 if [ "$1" == "" ] #testa o argumento
 then
     echo "Siga o exemplo abaixo para passagem de parametros, passando o tipo de hash e a lista de palavras"
