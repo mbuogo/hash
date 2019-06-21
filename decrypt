@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# passar hash como argumento
+
+if [ "$1" == "" ] #testa o argumento
+then
+	echo "Siga o exemplo abaixo para passagem de parametros, passando o nome de domínio"
+	echo " $0 wordlist encriptacao hash==> ./quebra_senha.sh /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
+
+else
+
+    if [ "$2" == "sha256" ]
+    then
+   	 for i in $(cat $1)
+   	 do
+   		 clear
+   		 cypher=$(echo -n $i | sha256sum | cut -d " " -f1)
+   		 echo "Testando $cypher"
+   		 if [ $3 == $cypher ]
+   		 then
+   			 echo "[+][+] decrypt -- $i [+][+]"
+   			 break
+   		 fi
+   	 done
+    fi
+
+    if [ "$2" == "sha1" ]
+    then
+   	 for i in $(cat $1)
+   	 do
+   		 clear
+   		 cypher=$(echo -n $i | sha1sum | cut -d " " -f1)
+   		 echo "Testando $cypher"
+   		 if [ $3 == $cypher ]
+   		 then
+   			 echo "[+][+] decrypt -- $i [+][+]"
+   			 break
+   		 fi
+   	 done
+    fi
+
+    if [ "$2" == "md5" ]
+    then
+   	 for i in $(cat $1)
+   	 do
+   		 clear
+   		 cypher=$(echo -n $i | md5sum | cut -d " " -f1)
+   		 echo "Testando $cypher"
+   		 if [ $3 == $cypher ]
+   		 then
+   			 echo "[+][+] decrypt -- $i [+][+]"
+   			 break
+   		 fi
+   	 done
+    fi
+fi
