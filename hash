@@ -13,7 +13,7 @@ else
     for i in $(cat $2)
     do
     cypher=$(echo -n $i | $1 | cut -f 1 -d " ")
-    echo "$i:$cypher" >> hash.txt	
+    echo "$i:$cypher" >> hashs.txt	
     done
 
     echo "(+)(+) Hash criados no arquivo hash.txt"
