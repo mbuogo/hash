@@ -5,7 +5,7 @@
 if [ "$1" == "" ] #testa o argumento
 then
 	echo " "
-	echo "Siga o exemplo abaixo para passagem de parametros, passando a wordlist, tipo de encripatacao e o hash"
+	echo "Siga o exemplo abaixo para passagem de parametros, passando a wordlist, tipo de encriptacao e o hash"
 	echo " "
 	echo " $0 /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
 	echo " "
