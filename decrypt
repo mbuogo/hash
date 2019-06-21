@@ -4,8 +4,11 @@
 
 if [ "$1" == "" ] #testa o argumento
 then
-	echo "Siga o exemplo abaixo para passagem de parametros, passando o nome de domínio"
-	echo " $0 wordlist encriptacao hash ==> ./quebra_senha.sh /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
+	echo " "
+	echo "Siga o exemplo abaixo para passagem de parametros, passando a wordlist, tipo de encripatacao e o hash"
+	echo " "
+	echo " $0 /usr/share/wordlists/rockyou.txt md5 698dc19d489c4e4db73e28a713eab07b"
+	echo " "
 
 else
 
