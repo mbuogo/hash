@@ -1,1 +1,2 @@
-# hash
+#hash
+Scritps para manipulação de hahs e criptografia
