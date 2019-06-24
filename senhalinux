@@ -1,7 +1,7 @@
 import crypt
 
 print "########################################"
-print "   	O  QUEBRADOR DE SENHA        	"
+print "         O  QUEBRADOR DE SENHA           "
 print "########################################\n"
 
 salt = raw_input ("Informe o SALT da senha - ")
@@ -13,10 +13,8 @@ c = salt + senha
 print "\n"
 
 with open (wl) as f:
-   	 linhas = f.readlines()
-   	 for x in linhas:
-   		 c2 = crypt.crypt(x, salt)
-   		 if (c == c2):
-   			 print "A senha quebrada - ",x
-             print " "
-             print "¯\_(ツ)_/¯"
+         linhas = f.readlines()
+         for x in linhas:
+                 c2 = crypt.crypt(x, salt)
+                 if (c == c2):
+                         print "A senha quebrada - ",x
