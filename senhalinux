@@ -6,14 +6,17 @@ print "########################################\n"
 
 salt = raw_input ("Informe o SALT da senha - ")
 senha = raw_input ("Informe a senha - ")
+wl = raw_input ("Informe o caminho da Wordlist - ")
 
 c = salt + senha
 
 print "\n"
 
-with open ("wl-pass.txt") as f:
+with open (wl) as f:
    	 linhas = f.readlines()
    	 for x in linhas:
    		 c2 = crypt.crypt(x, salt)
    		 if (c == c2):
    			 print "A senha quebrada - ",x
+             print " "
+             print "¯\_(ツ)_/¯"
