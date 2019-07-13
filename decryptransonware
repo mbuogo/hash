@@ -1,0 +1,11 @@
+#!/bin/bash
+
+arquivos=$(ls /home/teste)
+
+for a in $arquivos
+do
+        if [ "$a" != "script_decrypto.sh" ] && [ "$a" != "privada.pem" ] && [ "$a" != "publica.pem" ]; then
+        openssl rsautl -in "$a" -out "$a.limpo" -decrypt -inkey privada.pem
+        #rm -rf $a
+        fi
+done
