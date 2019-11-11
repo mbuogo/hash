@@ -1,6 +1,4 @@
 import hashlib
-import sys
-
 
 def brute_force(wordlist,hash1,op2):
 	if op2 == 1:
