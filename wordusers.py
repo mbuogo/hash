@@ -1,10 +1,7 @@
 import sys
 import string
 
-
 wordlist = open('wordlist-users.txt', 'w')
-cont=1
-
 
 if len(sys.argv) < 2:
     print("\n Exemplo: python "+ sys.argv[0] + " wordlistusuarios.txt \n")
@@ -60,8 +57,8 @@ else:
 	number='{:d}'.format(casa).zfill(2)
 	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
 	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        c=x+str(cont)+'\n'
-        d=y+str(cont)+'\n'
+        c=x+str(casa)+'\n'
+        d=y+str(casa)+'\n'
 	h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
 	wordlist.write(h.lower())	
 	wordlist.write(t.lower())
@@ -74,8 +71,8 @@ else:
 	number='{:d}'.format(casa).zfill(1)
 	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
 	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        c=x+str(cont)+'\n'
-        d=y+str(cont)+'\n'
+        c=x+str(casa)+'\n'
+        d=y+str(casa)+'\n'
 	h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
 	wordlist.write(h.lower())	
 	wordlist.write(t.lower())
@@ -85,3 +82,19 @@ else:
  
   wordlist.close()
 
+print("\n<><> Deseja gerar a concatencao com o dominio da empresa? \n Sim(s) \n Nao(n) \n")
+op = raw_input("<><> ")
+op = op[0].lower()
+
+if op == 's':
+  domain = raw_input("<><> Informe o dominio da empresa: ")
+  wordlistdomain = open('wordlist-users-domain.txt', 'w') 
+  with open('wordlist-users.txt') as file:
+    for line in file:
+	line=line.rstrip('\n')
+	userdomain=line+'@'+domain+'\n'
+	wordlistdomain.write(userdomain)
+  wordlistdomain.close()
+  print ('\n \n [+][+] Finalizado com sucesso.')
+else:
+  print ('\n \n [+][+] Finalizado com sucesso.')
