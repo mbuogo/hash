@@ -1,7 +1,9 @@
 import sys
 import string
 
+
 wordlist = open('wordlist-users.txt', 'w')
+
 
 if len(sys.argv) < 2:
     print("\n Exemplo: python "+ sys.argv[0] + " wordlistusuarios.txt \n")
@@ -82,7 +84,7 @@ else:
  
   wordlist.close()
 
-print("\n<><> Deseja gerar a concatencao com o dominio da empresa? \n Sim(s) \n Nao(n) \n")
+print("\n<><> Desejar gerar a concatencao com o dominio da empresa? \n Sim(s) \n Nao(n) \n")
 op = raw_input("<><> ")
 op = op[0].lower()
 
@@ -92,7 +94,7 @@ if op == 's':
   with open('wordlist-users.txt') as file:
     for line in file:
 	line=line.rstrip('\n')
-	userdomain=line+'@'+domain+'\n'
+	userdomain=line+'@'+domain.lower()+'\n'
 	wordlistdomain.write(userdomain)
   wordlistdomain.close()
   print ('\n \n [+][+] Finalizado com sucesso.')
