@@ -10,4 +10,4 @@ if len(sys.argv) < 2:
 else:
   with open(sys.argv[1]) as file:
     for line in file:
-      
+      print (line)
