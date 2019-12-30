@@ -17,6 +17,7 @@ else:
       last_name=len(hack_name)-1
       last_letter=len(hack_name[0])-1
 
+      #preparacao das linhas com os nomes retirando as quebras de linha
       a=line.replace(' ', '.')+'\n'
       x=a.rstrip('\n')
       b=line.replace(' ', '')+'\n'
@@ -25,28 +26,49 @@ else:
       #grava as concatenacoes de nome + todos sobrenomes
       wordlist.write(a.lower())
       wordlist.write(b.lower())
+      
+      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome
+      h=hack_name[0][0]+hack_name[last_name]+'\n'
+      wordlist.write(h.lower())
 
-      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome com e sem numero
+      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome + numero de 4 digitos
       for casa in range(5):
 	number='{:d}'.format(casa).zfill(4)
-	h=hack_name[0][0]+hack_name[last_name]+'\n'
 	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
 	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'	
-	wordlist.write(h.lower())	
 	wordlist.write(t.lower())
 	wordlist.write(g.lower())
 
-      #grava as concatenacoes de nome + todos sobrenomes + numero
-      while (cont < 5):
+      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome + numero de 3 digitos
+      for casa in range(5):
+	number='{:d}'.format(casa).zfill(3)
+	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'	
+	wordlist.write(t.lower())
+	wordlist.write(g.lower())
+
+      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome + numero de 2 digitos
+      for casa in range(5):
+	number='{:d}'.format(casa).zfill(2)
+	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
         c=x+str(cont)+'\n'
-        d=y+str(cont)+'\n'
+        d=y+str(cont)+'\n'	
+	wordlist.write(t.lower())
+	wordlist.write(g.lower())
         wordlist.write(c.lower())
         wordlist.write(d.lower())
-	
-        cont = cont +1
 
-      cont = 0
-
-
+      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome + numero de 1 digito
+      for casa in range(5):
+	number='{:d}'.format(casa).zfill(1)
+	t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+	g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
+        c=x+str(cont)+'\n'
+        d=y+str(cont)+'\n'	
+	wordlist.write(t.lower())
+	wordlist.write(g.lower())
+        wordlist.write(c.lower())
+        wordlist.write(d.lower())
  
   wordlist.close()
