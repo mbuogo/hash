@@ -1,6 +1,7 @@
 import sys
 import string
 
+#IMPORTANTE: Necessario remover os acentos dos nomes. Solucao paliativa: executar o comando sed 'y/áÁàÀãÃâÂéÉêÊíÍóÓõÕôÔúÚçÇ/aAaAaAaAeEeEiIoOoOoOuUcC/' para limpar a lista.
 
 wordlist = open('wordlist-users.txt', 'w')
 
