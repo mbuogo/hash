@@ -107,6 +107,6 @@ if op == 's':
       userdomain=line+'@'+domain.lower()+'\n'
       wordlistdomain.write(userdomain)
   wordlistdomain.close()
-  print ('\n \n [+][+] Finalizado com sucesso. Usuarios gravados em wordlist-users.txt [+][+]')
-else:
   print ('\n \n [+][+] Finalizado com sucesso. Usuarios gravados em wordlist-users.txt e wordlist-users-domain.txt [+][+]')
+else:
+  print ('\n \n [+][+] Finalizado com sucesso. Usuarios gravados em wordlist-users.txt~[+][+]')
