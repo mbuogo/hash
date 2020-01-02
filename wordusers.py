@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+#Necessario utilizar python 3
+#Esse script cria uma wordlist de usuarios com alguns padroes de criacao de usuarios da empresas.
+#Para isso, basta ter uma lista de nomes em txt.
+#Script desenvolvido por Mateus Buogo
+#
+
 import sys
 import string
 import re
