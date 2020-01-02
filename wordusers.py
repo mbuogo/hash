@@ -3,7 +3,8 @@
 #Esse script cria uma wordlist de usuarios com alguns padroes de criacao de usuarios da empresas.
 #Para isso, basta ter uma lista de nomes em txt.
 #Script desenvolvido por Mateus Buogo
-#
+#Obs: O script contém um erro simples. Corrija ele para utilizar.
+#Obs2: Use apenas para fins acadêmicos e de aprendizado! :-)
 
 import sys
 import string
