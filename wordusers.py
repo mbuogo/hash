@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-#Necessario utilizar python 3
 import sys
 import string
 import re
@@ -9,7 +8,8 @@ wordlist = open('wordlist-users.txt', 'w')
 
 
 if len(sys.argv) < 2:
-    print("\n Exemplo: python "+ sys.argv[0] + " wordlistusuarios.txt \n")
+    print(">> Para usar esse script, siga o exemplo, informando a lista de nomes que possui.")
+    print("\n  -- Exemplo: python3 "+ sys.argv[0] + " listadenomes.txt \n")
     sys.exit(0)
 else:
   with open(sys.argv[1]) as file:
@@ -85,7 +85,7 @@ else:
         wordlist.write(c.lower())
         wordlist.write(d.lower())
 
-wordlist.close()
+        wordlist.close()
 
 print("\n<><> Desejar gerar a concatencao com o dominio da empresa? \n Sim(s) \n Nao(n) \n")
 op = input("<><> ")
@@ -99,7 +99,7 @@ if op == 's':
       line=line.rstrip('\n')
       userdomain=line+'@'+domain.lower()+'\n'
       wordlistdomain.write(userdomain)
-    wordlistdomain.close()
-    print ('\n \n [+][+] Finalizado com sucesso.')
+  wordlistdomain.close()
+  print ('\n \n [+][+] Finalizado com sucesso. Usuarios gravados em wordlist-users.txt [+][+]')
 else:
-  print ('\n \n [+][+] Finalizado com sucesso.')
+  print ('\n \n [+][+] Finalizado com sucesso. Usuarios gravados em wordlist-users.txt e wordlist-users-domain.txt [+][+]')
