@@ -92,7 +92,7 @@ op = input("<><> ")
 op = op[0].lower()
 
 if op == 's':
-  domain = raw_input("<><> Informe o dominio da empresa: ")
+  domain = input("<><> Informe o dominio da empresa: ")
   wordlistdomain = open('wordlist-users-domain.txt', 'w') 
   with open('wordlist-users.txt') as file:
     for line in file:
