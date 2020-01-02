@@ -99,7 +99,7 @@ if op == 's':
       line=line.rstrip('\n')
       userdomain=line+'@'+domain.lower()+'\n'
       wordlistdomain.write(userdomain)
-      wordlistdomain.close()
-      print ('\n \n [+][+] Finalizado com sucesso.')
+    wordlistdomain.close()
+    print ('\n \n [+][+] Finalizado com sucesso.')
 else:
   print ('\n \n [+][+] Finalizado com sucesso.')
