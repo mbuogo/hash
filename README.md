@@ -1,1 +1,1 @@
-Scritps para manipulação de hahs e criptografia
+Scritps para manipulação de hahs, criptografia e criação de usuários.
