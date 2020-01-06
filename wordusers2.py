@@ -58,7 +58,6 @@ else:
       if len(u) > 8:
         while len(u) > 8:
           u=u[:-1]
-        print(u)
         wordlist.write(u.lower())
 
       #grava as concatenacoes com numero de 4 digitos
