@@ -19,146 +19,146 @@ if len(sys.argv) < 2:
     print("\n  -- Exemplo: python3 "+ sys.argv[0] + " listadenomes.txt \n")
     sys.exit(0)
 else:
-  with open(sys.argv[1]) as file:
-    for line in file:
-      line = normalize('NFD',line).encode('ASCII', 'ignore').decode('ASCII')
-      line = re.sub(r'[-./?!,":;()\']', ' ', line)
-      line=line.rstrip('\n')
-      hack_name=line.split()
-      last_name=len(hack_name)-1
-      last_letter=len(hack_name[0])-1
+    modo = input("\n[-] Qual modo deseja que seja executado? \n(1) Normal\n(2) Insano\n")
+    with open(sys.argv[1]) as file:
+      for line in file:
+        line = normalize('NFD',line).encode('ASCII', 'ignore').decode('ASCII')
+        line = re.sub(r'[-./?!,":;()\']', ' ', line)
+        line=line.rstrip('\n')
+        hack_name=line.split()
+        last_name=len(hack_name)-1
+        last_letter=len(hack_name[0])-1
 
-      #preparacao das linhas com os nomes retirando as quebras de linha
-      a=line.replace(' ', '.')+'\n'
-      x=a.rstrip('\n')
-      b=line.replace(' ', '')+'\n'
-      y=b.rstrip('\n')
-	
-      #grava as concatenacoes de nome + todos sobrenomes
-      wordlist.write(a.lower())
-      wordlist.write(b.lower())
-      
-      #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome
-      h=hack_name[0][0]+hack_name[last_name]+'\n'
-      wordlist.write(h.lower())
-
-      #grava as concatenacoes do primeiro nome e da primeira letra do ultimo nome
-      h=hack_name[0]+hack_name[last_name][0]+'\n'
-      wordlist.write(h.lower())
-
-
-      # grava primeira letra de cada nome ate 8 caracteres
-      if len(hack_name) == 2:
-        u=hack_name[0][0]+hack_name[last_name]+'\n'
-      if len(hack_name) == 3:
-        u=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-      if len(hack_name) == 4:
-        u=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-
-      if len(u) > 8:
-        while len(u) > 8:
-          u=u[:-1]
-        wordlist.write(u.lower())
-
-      #grava as concatenacoes com numero de 4 digitos
-      for casa in range(9999):
-        number='{:d}'.format(casa).zfill(4)
-        t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
-        g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
-        if len(hack_name) == 3:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
-        if len(hack_name) == 4:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
-        wordlist.write(h.lower())   
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-
-      #grava as concatenacoes com numero de 3 digitos
-      for casa in range(999):
-        number='{:d}'.format(casa).zfill(3)
-        t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
-        g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n' 
-        if len(hack_name) == 3:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
-        if len(hack_name) == 4:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
-        wordlist.write(h.lower())   
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
+        #preparacao das linhas com os nomes retirando as quebras de linha
+        a=line.replace(' ', '.')+'\n'
+        x=a.rstrip('\n')
+        b=line.replace(' ', '')+'\n'
+        y=b.rstrip('\n')
+    
+        #grava as concatenacoes de nome + todos sobrenomes
+        wordlist.write(a.lower())
+        wordlist.write(b.lower())
+        
+        #grava as concatenacoes da primeira letra do primeiro nome + ultimo nome
+        h=hack_name[0][0]+hack_name[last_name]+'\n'
         wordlist.write(h.lower())
-      #grava as concatenacoes com numero de 2 digitos
-      for casa in range(99):
-        number='{:d}'.format(casa).zfill(2)
-        t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
-        g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        c=x+str(casa)+'\n'
-        d=y+str(casa)+'\n'
-        h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
+
+        #grava as concatenacoes do primeiro nome e da primeira letra do ultimo nome
+        h=hack_name[0]+hack_name[last_name][0]+'\n'
+        wordlist.write(h.lower())
+
+
+        # grava primeira letra de cada nome ate 8 caracteres
+        if len(hack_name) == 2:
+          u=hack_name[0][0]+hack_name[last_name]+'\n'
         if len(hack_name) == 3:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
+          u=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
         if len(hack_name) == 4:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
+          u=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
 
-        wordlist.write(h.lower())   
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-        wordlist.write(h.lower()) 
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-        wordlist.write(c.lower())
-        wordlist.write(d.lower())
+        if len(u) > 8:
+          while len(u) > 8:
+            u=u[:-1]
+          wordlist.write(u.lower())
+        
+        if int(modo) == 2:
+          #grava as concatenacoes com numero de 4 digitos
+          for casa in range(9999):
+            number='{:d}'.format(casa).zfill(4)
+            t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+            g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
+            h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
+            if len(hack_name) == 3:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+            if len(hack_name) == 4:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+                wordlist.write(h.lower())   
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
 
-      #grava as concatenacoes com numero de 1 digito
-      for casa in range(9):
-        number='{:d}'.format(casa).zfill(1)
-        t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
-        g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
-        c=x+str(casa)+'\n'
-        d=y+str(casa)+'\n'
-        h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
-        if len(hack_name) == 3:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
-        if len(hack_name) == 4:
-            j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
-            i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
-            wordlist.write(j.lower())
-            wordlist.write(i.lower())
+          #grava as concatenacoes com numero de 3 digitos
+          for casa in range(999):
+            number='{:d}'.format(casa).zfill(3)
+            t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+            g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
+            h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n' 
+            if len(hack_name) == 3:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+            if len(hack_name) == 4:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+                wordlist.write(h.lower())   
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(h.lower())
+          #grava as concatenacoes com numero de 2 digitos
+          for casa in range(99):
+            number='{:d}'.format(casa).zfill(2)
+            t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+            g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
+            c=x+str(casa)+'\n'
+            d=y+str(casa)+'\n'
+            h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
+            if len(hack_name) == 3:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+            if len(hack_name) == 4:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+                wordlist.write(h.lower())   
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(h.lower()) 
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(c.lower())
+                wordlist.write(d.lower())
 
-        wordlist.write(h.lower())   
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-        wordlist.write(h.lower()) 
-        wordlist.write(t.lower())
-        wordlist.write(g.lower())
-        wordlist.write(c.lower())
-        wordlist.write(d.lower())
+          #grava as concatenacoes com numero de 1 digito
+          for casa in range(9):
+            number='{:d}'.format(casa).zfill(1)
+            t=hack_name[0][0]+hack_name[last_name]+str(number)+'\n'
+            g=hack_name[0][0]+hack_name[0][last_letter]+str(number)+'\n'
+            c=x+str(casa)+'\n'
+            d=y+str(casa)+'\n'
+            h=hack_name[0]+hack_name[last_name][0]+str(number)+'\n'
+            if len(hack_name) == 3:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+            if len(hack_name) == 4:
+                j=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+str(number)+'\n'
+                i=hack_name[0][0]+hack_name[1][0]+hack_name[2][0]+hack_name[last_name]+'\n'
+                wordlist.write(j.lower())
+                wordlist.write(i.lower())
+                wordlist.write(h.lower())   
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(h.lower()) 
+                wordlist.write(t.lower())
+                wordlist.write(g.lower())
+                wordlist.write(c.lower())
+                wordlist.write(d.lower())
 
-        wordlist.close()
+		wordlist.close()
 
 print("\n<><> Desejar gerar a concatencao com o dominio da empresa? \n Sim(s) \n Nao(n) \n")
 op = input("<><> ")
